@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--jQuery-->
+    <script type="text/javascript" src="../../$/jquery-3.2.1.min.js"></script>
+    <!--Plugins-->
+    <script type="text/javascript">
+        (function ($) {
+            $.fn.peindre = function (options) {
+                let defaults = {
+                    "color": 'red',
+                    "padding": 10 + "px"
+                };
+                let conf = $.extend(defaults, options);
+                this.css('background-color', conf.color);
+                return this;
+            };
+            $.fn.peindre_2 = function (options) {
+                let defaults = {
+                    "color": 'red',
+                    "padding": 10 + "px"
+                };
+                let conf = $.extend(defaults, options);
+                this.css('background-color', conf.color);
+                return this;
+            }
+        })(jQuery);
+    </script>
+    <script type="text/javascript">
+        (function (P) {
+            P.fn.accordeon = function (options) {
+                /*                this represente la collection d'elements roots
+                 pour chacun des accordeons dans la page*/
+                let defaults = {};
+                let config = $(this).extend(defaults, options);
+                let collectionRoots = this;
+                let styleCssText = "h2.active{ background-color: #FFFFFF; color: #000000; }  h2:hover{ cursor: pointer; }   h2{ background-color: #EEEEEE; border -radius: 5px; padding: 5px; border:1px solid #919191; margin: 2px 0; color: #919191; }  div{ position: relative; border -radius: 5px; border:1px solid #919191; padding: 5px;}";
+                let s = document.createElement('style');
+                s.innerText = styleCssText;
+                $('head').append(s);
+                this.find('div').hide();
+                this.find('h2').click(function () {
+                    /*         Ici le this
+                     represente l'element h2 click*/
+                    if ($(this).hasClass('active')) {
+                        $(this).removeClass('active').next().slideUp('fast');
+                    } else {
+                        collectionRoots.find('h2.active').removeClass('active')
+                            .next().slideToggle('fast');
+                        $(this).addClass('active').next().slideDown('fast');
+                    }
+                });
+            }
+        })(jQuery);
+    </script>
+    <!--Mon JavaScript-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('div').first().peindre().next().peindre({"color": "green"});
+            //$('div').last().peindre({color:"yellow"})
+
+            $('.accordeon').accordeon();
+        })
+    </script>
+    <title>Background Plugin</title>
+</head>
+<body>
+<div>Content Div Red Defautl Color</div>
+<div>Content Div Yellow</div>
+
+<div class="accordeon">
+    <h2>titre #1</h2>
+    <div>
+        <p>#1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi dignissimos distinctio dolorum est natus
+            necessitatibus reprehenderit! Ad atque aut consequatur corporis cumque distinctio eum exercitationem, quod
+            rem saepe sequi voluptatem.</p>
+    </div>
+    <h2>titre #2</h2>
+    <div>
+        <p>#2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi dignissimos distinctio dolorum est natus
+            necessitatibus reprehenderit! Ad atque aut consequatur corporis cumque distinctio eum exercitationem, quod
+            rem saepe sequi voluptatem.</p>
+    </div>
+    <h2>titre #3</h2>
+    <div>
+        <p>#3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi dignissimos distinctio dolorum est natus
+            necessitatibus reprehenderit! Ad atque aut consequatur corporis cumque distinctio eum exercitationem, quod
+            rem saepe sequi voluptatem.</p>
+        <p>#3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi dignissimos distinctio dolorum est natus
+            necessitatibus reprehenderit! Ad atque aut consequatur corporis cumque distinctio eum exercitationem, quod
+            rem saepe sequi voluptatem.</p>
+        <p>#3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi dignissimos distinctio dolorum est natus
+            necessitatibus reprehenderit! Ad atque aut consequatur corporis cumque distinctio eum exercitationem, quod
+            rem saepe sequi voluptatem.</p>
+        <p>#3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi dignissimos distinctio dolorum est natus
+            necessitatibus reprehenderit! Ad atque aut consequatur corporis cumque distinctio eum exercitationem, quod
+            rem saepe sequi voluptatem.</p>
+    </div>
+</div>
+
+</body>
+</html>

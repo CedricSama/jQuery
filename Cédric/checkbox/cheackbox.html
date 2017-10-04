@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- librairie jquery-->
+    <script type="text/javascript" src="../../$/jquery-3.2.1.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/custom_checkbox.css">
+    <title>CheckBox</title>
+    <script type="text/javascript">
+        /*
+         $(document).ready(function () {
+         console.log('Script Chargé');
+
+         let inputCheckBox = $('input[type=checkbox]');
+         let sub = $('input[type = submit]');
+
+         inputCheckBox.each(function () {
+         $(this).hide();
+         $('<img src="img/off.png" class="customCheckBox">').insertBefore($(this));
+         });
+         $('.customCheckBox').click(function () {
+
+         let checkBox = $(this).next();                //console.log(checkBox.is(':checked'));
+
+         if (checkBox.is(':checked')) {
+         checkBox.prop('checked', false);
+         this.src = 'img/off.png';
+         }else {
+         checkBox.prop('checked', true);
+         this.src = 'img/on.png';
+         }
+         inputCheckBox.click(function (e) {
+
+         let res = [];                        //console.log(this);
+         e.preventDefault();
+
+         $('input[type = checkbox]:checked').each(function () {          //console.log(this);
+         res.push($(this).val());
+         console.log(res);
+         });
+         });
+         });
+         $(sub).click(function () {
+
+         });
+
+         });
+         */
+        $(document).ready(function () {            //console.log("Script ok");
+
+            let inputCheckBox = $('input[type = checkbox]');
+
+            inputCheckBox.each(function () {
+                $(this).hide();
+                $("<div class='custom_select'></div>").insertBefore($(this));
+            });
+            $('.custom_select').click(function () {
+                /*//let che = $(this).next();
+
+                 //let boolean = che.is(":checked")?false:true;
+                 /!*let boolean = !che.is(":checked");
+
+                 che.prop("checked", boolean);
+                 $(this).toggleClass("on");*!/
+
+                 //$(this).toggleClass('on').next().prop('checked',!$(this).next().is(':checked'));*/
+                $(this).toggleClass('on').next().prop('checked', ! $(this).next());
+            });
+            $('input[type = submit]').click(function (e) {
+                e.preventDefault();
+                let res = [];                        //console.log(this);
+                $('input[type = checkbox]:checked').each(function () {          console.log(this);
+                    res.push($(this).val());
+                });
+                console.log(res);
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <form action="#" method="post">
+        <label>Votre hobby</label>
+        <br>
+        <input id="peche" type="checkbox" name="hobby[]" value="peche">
+        <label for="peche">Peche</label>
+        <input id="chasse" type="checkbox" name="hobby[]" value="chasse">
+        <label for="chasse">Chasse</label>
+        <input id="danse" type="checkbox" name="hobby[]" value="danse">
+        <label for="danse">Danse</label>
+        <input id="sport" type="checkbox" name="hobby[]" value="sport">
+        <label for="sport">Sport</label>
+        <br>
+        <input type="submit" value="Ok">
+    </form>
+    <!--
+        <div class="custom_select"></div>
+        <div class="custom_select on"></div>-->
+</div>
+</body>
+</html>

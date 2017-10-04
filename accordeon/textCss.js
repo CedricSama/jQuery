@@ -1,0 +1,1 @@
+        var styleCssText = ".accordeon h2.active{ background-color: #FFFFFF; color: #000000; }.accordeon h2:hover{ cursor: pointer; } . accordeon h2{ background-color: #EEEEEE; border -radius: 5px; padding: 5px; border:1px solid #919191; margin: 2px 0; color: #919191; } . accordeon div{ position: relative; border -radius: 5px; border:1px solid #919191; padding: 5px;}";

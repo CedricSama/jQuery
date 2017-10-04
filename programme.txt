@@ -1,0 +1,19 @@
+INITIATION
+
+ Chargement de jQuery, dev, prod, map, CDN
+ L’objet jQuery et son alias $
+ Selection
+ CSS
+ Manipulation DOM
+ Parcours DOM
+ Events
+ Effets
+ Utilisation de plugins
+
+Avancé : 
+
+ Création de plugin
+ Ajax
+ Si possible présentation d’autre framework type AngularJS,
+backbone, nodeJS etc.
+ TP : création de slider, autocomplete

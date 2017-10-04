@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" rel="script" src="../../$/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" rel="script">
+        $(document).ready(function () {
+            $('input').keypress(function (evenement) {
+                console.log(evenement);
+                let zoneText = $('input');
+                switch (evenement.key) {
+                    case "a":
+                        zoneText.val(zoneText.val()+"s");
+                        return false;
+                        break;
+                    case "z":
+                        zoneText.val(zoneText.val()+"u");
+                        return false;
+                        break;
+                    case "e":
+                        zoneText.val(zoneText.val()+"c");
+                        return false;
+                        break;
+                    case "r":
+                        zoneText.val(zoneText.val()+"e");
+                        return false;
+                        break;
+                    case "t":
+                        zoneText.val(zoneText.val()+" ");
+                        return false;
+                        break;
+                    case "y":
+                        zoneText.val(zoneText.val()+"m");
+                        return false;
+                        break;
+                    case "u":
+                        zoneText.val(zoneText.val()+"a");
+                        return false;
+                        break;
+                    case "i":
+                        zoneText.val(zoneText.val()+"b");
+                        return false;
+                        break;
+                    case "o":
+                        zoneText.val(zoneText.val()+"e");
+                        return false;
+                        break;
+                    case " ":
+                        zoneText.val(zoneText.val()+" ");
+                        return false;
+                        break;
+                }
+            });
+        });
+    </script>
+    <style type="text/css" rel="stylesheet">
+        body > div {
+            width: 250px;
+            margin: 75px auto;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div>
+        <label for="text">Test ici ton clavier gros</label>
+    </div>
+    <input type="text" id="text">
+</div>
+</body>
+</html>

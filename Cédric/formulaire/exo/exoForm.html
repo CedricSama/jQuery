@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css" rel="stylesheet">
+        form {
+            margin: 15px;
+            padding: 10px;
+        }
+    </style>
+    <script rel="script" type="text/javascript " src="../../../$/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" rel="script">
+        $(document).ready(function () {
+            console.log('Script Ok !');
+            let $validation = $('input[type=button]');
+
+            function evaluation() {
+                            eval($("textarea").val());
+            }
+            $validation.click(evaluation);
+        });
+    </script>
+</head>
+<body>
+<form action="">
+    <label for="zoneJs"></label>
+    <textarea name="zoneJs" id="zoneJs" cols="50" rows="20"></textarea>
+    <input type="button" value="Validation">
+</form>
+</body>
+</html>

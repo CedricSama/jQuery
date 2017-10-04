@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "Mortel Voices",
+  "description": "Blablablabla",
+  "version": "1.0",
+  "icons": {
+    "16": "img/mikrofon-google-hledani-ico.png",
+    "48": "img/mikrofon-google-hledani-ico.png",
+    "128": "img/megaphone-128.png"
+  },
+  "browser_action": {
+    "default_icon": "img/megaphone-128.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab"
+  ],
+  "content_scripts": [{
+      "matches": ["<all_urls>"],
+      "js": ["jquery-3.2.1.js", "extentionChrom.js"],
+      "css": ["extentionChrom.css"]
+    }]
+}

@@ -1,0 +1,42 @@
+.wrapper{
+    width:50%;
+    margin:0 auto;
+}
+
+.accordeon{
+
+}
+.accordeon h2.active{
+    background-color: #FFFFFF;
+    color: #000000;
+}
+.accordeon h2:hover{
+    cursor: pointer;
+}
+.accordeon h2{
+    background-color: #EEEEEE;
+    border-radius: 5px;
+    padding: 5px;
+    border:1px solid #919191;
+    margin: 2px 0;
+    color: #919191;
+}
+
+.accordeon div{
+    position: relative;
+    border-radius: 5px;
+    max-height: 0;
+    overflow: hidden;
+}
+
+
+
+.accordeon div.visible{
+    border:1px solid #919191;
+    padding: 5px;
+    max-height:1000px;
+    transition: max-height 5s;
+}
+.invisible{
+
+}

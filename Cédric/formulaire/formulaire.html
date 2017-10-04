@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Script jQuery-->
+    <script type="text/javascript" rel="script" src="../../$/jquery-3.2.1.min.js"></script>
+    <!--Plugin-->
+    <script type="text/javascript" rel="script">
+        (function ($) {
+            $.fn.ValidateForm = function (options) {
+                let config = $.extend({
+                    numericMask: function () {
+                        return (/^[0-9]$/.test(event.key));
+                        },
+                    numericRequiredMask: function () {},
+                    alphaMask: function () {},
+                    alphaRequiredMask: function () {},
+                    dateMask: function () {},
+                    urlMask: function () {},
+                    emailMask: function () {}
+                }, options);
+                let defaults = {
+                    numeric: {
+                        RegEx: "^[0-9]*$",
+                        ErrorMsg: "Veuillez ne saisir que des chiffres !",
+                        mask: function () {
+                        }
+                    },
+                    numericRequired: {
+                        RegEx: "^[0-9]+$",
+                        ErrorMsg: "Valeur numérique obligatoire !",
+                        mask: function () {
+                        }
+                    },
+                    alpha: {
+                        RegEX: " ",
+                        ErrorMsg: " ",
+                        mask: function () {
+                        }
+                    },
+                    alphaRequired: {
+                        RegEX: " ",
+                        ErrorMsg: " ",
+                        mask: function () {
+                        }
+                    },
+                    date: {
+                        RegEX: " ",
+                        ErrorMsg: " ",
+                        mask: function () {
+                        }
+                    },
+                    url: {
+                        RegEX: " ",
+                        ErrorMsg: " ",
+                        mask: function () {
+                        }
+                    },
+                    email: {
+                        RegEX: " ",
+                        ErrorMsg: " ",
+                        mask: function () {
+                        }
+                    }
+                };
+                this.find('input[data-vType]').each(function () {
+                    /*let validType = $(this).attr('data-vType');
+                    switch (validType) {
+                        case 'numeric':
+                            if ($(this).attr('ErrorMsg') == undefined) {
+                                $(this).attr('ErrorMsg', defaults['numeric']['ErrorMsg']);
+                            }
+                            $(this).attr('RegEx', defaults['numeric']['RegEx']);
+                            $(this).keyup(_keyup);
+                            break;
+                        case 'numericRequired':
+                            if ($(this).attr('ErrorMsg') == undefined) {
+                                $(this).attr('ErrorMsg', defaults['numericRequis']['ErrorMsg']);
+                            }
+                            $(this).attr('RegEx', defaults['numericRequis']['RegEx']);
+                            $(this).keyup(_keyup);
+                            break;
+                    }*/
+                    let validiType = $(this).attr('data-vType');
+                    $(this).attr("cedricRegExp",defaults.numeric.RegEx);
+                    $(this).attr("cedricMesage",defaults.numeric.ErrorMsg);
+                    //_manageInput;
+                    switch (validiType){
+                        case "numeric":
+                            $(this).keyup(_keyup);
+                            break;
+                    }
+                });
+                return this;
+            }
+        })(jQuery);
+
+        function _keyup() {
+            var input = $(this);
+            let newVal = input.val();
+            if (new RegExp(input.attr('cedricRegExp')).test(newVal)) {
+                input.removeClass('invalid');
+                input.addClass('valid');
+            } else {
+                input.removeClass('valid');
+                input.addClass('invalid');
+            }
+        }
+/*
+        {//console.log('Script Loeded');
+            let formulaire = $('form').ValidateForm;
+            let input = formulaire.find('input');
+            let errorMessage = "Veuillez ne saisir que des chiffres !";
+            let numberRequired = /^[0-9]+$/;
+            let numberExpReg = /^[0-9]*$/;
+            RegExp = numberExpReg;
+            //input.attr("pattern", "[0-9]+");
+            //input.prop('required', true);
+            if (input.prop('required')) {
+                if (input.val() === "") {
+                    input.removeClass('valid');
+                    input.addClass('invalid');
+                }
+            }
+            input.keypress(function (event) {
+                return (/^[0-9]$/.test(event.key));
+                /!*if(/^[0-9]$/.test(event.key)){
+                 return true;
+                 }else return false*!/
+                /!*if (/[0-9]+/.test(newVal)){
+                 input.prop("valid", true)
+                 }else {
+                 input.prop("valid", false)
+                 }
+                 (/[0-9]+/.test(newVal))?(input.prop("valid",true)):(input.prop("valid",false));*!/
+            });
+            //console.log(event);
+            //console.log(input.is(":valid"));
+            //console.log(input.is());
+            //console.log(input[0].checkValidity());
+            input.keyup(function () {
+                let newVal = input.val();
+                if (/^[0-9]*$/.test(newVal)) {
+                    input.removeClass('invalid');
+                    input.addClass('valid');
+                } else {
+                    input.removeClass('valid');
+                    input.addClass('invalid');
+                }
+                //console.log(input)
+            });
+            function _message(element, message) {
+                let $error = $(".error");
+                $error.remove();
+                $error.append('<div class="error"></div>');
+                $error.css({
+                    position: 'relative',
+                    top: element.offset().top + 'px',
+                    left: element.offset().left + element.width() + 10 + 'px',
+                });
+                $error.html(message)
+            }
+        }
+*/
+    </script>
+    <!--Script-->
+    <script type="text/javascript" rel="script">
+        $(document).ready(function () {
+            $('form').ValidateForm({
+                numericMask: function (event) {
+                    console.log('blablabla');
+                    return (/^[0-1]$/.test(event.key));
+                }
+            });
+        });
+    </script>
+    <!--CSS-->
+    <style type="text/css" rel="stylesheet">
+        .valid {
+            background-color: lime
+        }
+
+        .invalid {
+            background-color: pink
+        }
+    </style>
+    <title>Formulaire</title>
+</head>
+<body>
+<form action="">
+    <label for="champ_1"></label>
+    <input id="champ_1" type="text" placeholder="Remplis Ici Cousin" data-vType="numeric">
+</form>
+</body>
+</html>

@@ -1,0 +1,44 @@
+#wrapper {
+    width: 60%;
+    margin: 0 auto;
+}
+
+#tabs ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+#tabs ul li {
+    display: inline-block;
+    padding: 10px;
+    background-color: #EEEEEE;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px 5px 0 0;
+}
+
+#tabs ul li a {
+    text-decoration: none;
+    color: #CCCCCC;
+}
+
+#tabs div {
+    border: 1px solid #CCCCCC;
+    padding: 10px;
+    margin-top: -1px;
+    border-radius: 0 5px 5px 5px;
+    display: none;
+}
+
+#tabs ul li.active {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #FFFFFF;
+}
+
+#tabs ul li.active a {
+    color: #000000;
+}
+
+#tabs ul li:hover {
+    cursor: pointer;
+}

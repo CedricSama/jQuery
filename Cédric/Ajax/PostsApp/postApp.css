@@ -1,0 +1,9 @@
+h2{
+    text-align: center;
+    color: #9c1412;
+    margin: 15px auto;
+}
+.body{
+    padding: 5px;
+    border: dotted #1c2c9f 1px;
+}
